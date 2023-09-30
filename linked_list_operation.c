@@ -53,7 +53,7 @@ struct node *insertend(struct node *head, int data){
     return head;
 }
 
-//function to delete first node
+//function to delete first node of list 
 struct node *deleteatfirst(struct node *head){
     struct node *ptr = head;
     head = head->link;
