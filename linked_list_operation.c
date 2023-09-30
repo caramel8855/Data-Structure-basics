@@ -39,6 +39,20 @@ struct node *insertatindex(struct node *head, int data, int index){
     return head;
 };
 
+//function to insert at end 
+struct node *insertend(struct node *head, int data){
+    struct node *new = (struct node *)malloc(sizeof(struct node));
+    struct node *p  =  head;
+
+    while (p->link != NULL){
+        p = p->link;
+    }
+    p->link = new;
+    new->data = data;
+    new->link = NULL;
+    return head;
+}
+
 //function to delete first node
 struct node *deleteatfirst(struct node *head){
     struct node *ptr = head;
@@ -60,6 +74,20 @@ struct node *q = p->link;
 p->link = q->link;
 free(q);
 return head;
+}
+
+//function to delete last element 
+struct node *deletelast(struct node *head){
+    struct node *p = head;
+    struct node *q = head->link;
+
+    while(q->link != NULL){
+        p = p->link;
+        q = q->link;
+    }
+    p->link = NULL;
+    free(q);
+    return head;
 }
 
 int main(){
